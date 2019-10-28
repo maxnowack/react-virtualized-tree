@@ -42,7 +42,23 @@ export interface TreeProps {
   scrollToAlignment?: string;
 }
 
+export interface FastTreeProps {
+  extensions?: Extensions;
+  nodes: {
+    tree: Node[];
+    flattenedTree: Array<number | string>[];
+  };
+  onChange: (nodes: Node[]) => void;
+  children: <T = any>(props: RendererProps<T>) => JSX.Element;
+  nodeMarginLeft?: number;
+  width?: number;
+  scrollToId?: number;
+  scrollToAlignment?: string;
+}
+
 export default class Tree extends React.Component<TreeProps> {}
+
+export class FastTree extends React.Component<FastTreeProps> {}
 
 export type Omit<T, K> = Pick<T, Exclude<keyof T, K>>;
 
