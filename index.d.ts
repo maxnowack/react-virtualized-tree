@@ -156,9 +156,11 @@ interface Selectors {
   updateNode: (node: FlattenedNode, state: {[stateKey: string]: any}) => NodeAction;
 }
 
-interface State {
+export class State {
   flattenedTree: Array<number | string>[];
   tree: Node[];
+
+  constructor(tree: Node[], flattenedTree?: Array<string | number>[])
 }
 
 export interface TreeState {
